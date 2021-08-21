@@ -5,6 +5,16 @@ provider "azurerm"{
     }
 }
 
+terraform {
+  backend "azurerm"{
+      resource_group_name ="tfstategrp"
+      storage_account_name= "tfstorageacc123"
+      container_name ="tfstate"
+      key= "terraform.tfstate"
+  }
+}
+
+
 resource "azurerm_resource_group" "tfgroup"{
     name ="tfmainrg"
     location="westeurope"

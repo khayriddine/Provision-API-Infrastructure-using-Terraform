@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "tfgroup"{
     location="westeurope"
 }
 variable "imagebuild"{
-    type ="string"
+    type = string
     description ="latest image build"
 }
 

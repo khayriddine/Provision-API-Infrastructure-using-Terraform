@@ -19,6 +19,10 @@ resource "azurerm_resource_group" "tfgroup"{
     name ="tfmainrg"
     location="westeurope"
 }
+variable "imagebuild"{
+    type ="string"
+    description ="latest image build"
+}
 
 resource "azurerm_container_group" "tfcg"{
     name ="weatherapi"
@@ -31,7 +35,7 @@ resource "azurerm_container_group" "tfcg"{
 
     container{
         name ="weatherapi"
-        image ="khayriddine/weatherapi"
+        image ="khayriddine/weatherapi:${var.imagebuild}"
         cpu ="1"
         memory= "1"
 
